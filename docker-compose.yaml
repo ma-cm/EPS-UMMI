@@ -6,7 +6,7 @@ services:
     volumes:
             - ./mysql:/var/lib/mysql
     ports:
-          - "2306:3306"
+          - "4306:3306"
     restart: always
     environment:
           MYSQL_ROOT_PASSWORD: somepassword
@@ -26,7 +26,7 @@ services:
       PMA_ARBITRARY: 1
     restart: always
     ports:
-      - 2081:80
+      - 8081:80
         
   wordpress:
     depends_on: 
@@ -37,7 +37,7 @@ services:
           - ./src/plugins:/var/www/html/wp-content/plugins
           - ./src/uploads:/var/www/html/wp-content/uploads
     ports:
-          - "2800:80"
+          - "8000:80"
     restart: always
     environment:
           WORDPRESS_DB_HOST: db
